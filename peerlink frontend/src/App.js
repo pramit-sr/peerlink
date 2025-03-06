@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { io } from "socket.io-client";
 
-const socket = io("https://github.com/pramit-sr/peerlink.git"); // Connect to backend
+const socket = io("https://peerlink-cwvt.onrender.com/"); // Connect to backend
 
 function App() {
   const [message, setMessage] = useState("");
@@ -24,7 +24,7 @@ function App() {
   };
 
   const generateToken = () => {
-    fetch("https://github.com/pramit-sr/peerlink.git/generate-token")
+    fetch("https://peerlink-cwvt.onrender.com/generate-token")
       .then((response) => response.json())
       .then((data) => {
         setToken(data.token);

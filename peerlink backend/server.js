@@ -38,22 +38,22 @@ app.get("/generate-token", (req, res) => {
  * Socket.io Signaling Logic
  */
 io.on("connection", (socket) => {
-  console.log(`🔗 New client connected: ${socket.id}`);
+  console.log(`New client connected: ${socket.id}`);
 
   // Handle signaling messages
   socket.on("signal", (data) => {
-    console.log(`📡 Signal received: ${JSON.stringify(data)}`);
+    console.log(` Signal received: ${JSON.stringify(data)}`);
     socket.broadcast.emit("signal", data); // Forward to all other peers
   });
 
   // Handle disconnect
   socket.on("disconnect", () => {
-    console.log(`❌ Client disconnected: ${socket.id}`);
+    console.log(` Client disconnected: ${socket.id}`);
   });
 });
 
 // Start the server
 const PORT = 5003;
 server.listen(PORT, () => {
-  console.log(`🚀 Server running at http://localhost:${PORT}`);
+  console.log(`Server running at http://localhost:${PORT}`);
 });
